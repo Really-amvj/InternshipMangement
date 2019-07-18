@@ -17,11 +17,11 @@ public class SignUp extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         try {
-            RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/HTML/SignUp.html");
+            RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/HTML/SignUp.jsp");
             rd.forward(req, resp);
         } catch (Exception e) {
             PrintWriter out = resp.getWriter();
-            out.println("Something Went wrong in forwarding request");
+            out.println("Something Went wrong in forwarding request To Signup");
         }
     }
 
@@ -36,5 +36,6 @@ public class SignUp extends HttpServlet {
             createSession.setAttribute("username", userName);
             resp.sendRedirect("DashBoard");
         }
+
     }
 }

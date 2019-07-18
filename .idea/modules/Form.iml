@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module version="4">
-  <component name="AppEngineStandardGradleModuleComponent">
-    <option name="gradleBuildDir" value="C:\Users\User.FULL479-WIN.003\IdeaProjects\InternshipManagement\build" />
-    <option name="gradleModuleDir" value="C:\Users\User.FULL479-WIN.003\IdeaProjects\InternshipManagement" />
-    <option name="webAppDir" value="src/main/webapp" />
+  <component name="FacetManager">
+    <facet type="app-engine-standard" name="Google App Engine Standard">
+      <configuration />
+    </facet>
   </component>
 </module>
