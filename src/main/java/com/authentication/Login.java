@@ -21,9 +21,16 @@ public class Login extends HttpServlet {
             createSession.setAttribute("username", userName);
             resp.sendRedirect("DashBoard");
         }
-        else{
-            RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/HTML/Login.html");
-            rd.forward(req,resp);
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException{
+        try {
+            RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/HTML/Login.jsp");
+            rd.forward(req, resp);
+        }catch (Exception e){
+            PrintWriter out = resp.getWriter();
+            out.println("Unable to Fetch Login Portal INfo");
         }
     }
 
