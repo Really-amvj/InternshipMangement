@@ -2,8 +2,8 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>َLoginPortal</title>
-    <link rel="stylesheet" href="/CSS/Login">
+    <title>Login</title>
+    <link rel="stylesheet" href="../CSS/LoginStyle.css">
 </head>
 <body>
 

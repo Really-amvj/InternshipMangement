@@ -1,9 +1,7 @@
 package com.authentication;
 
-import com.serialization.DataInFile;
-
+import com.serialization.Data;
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,12 +28,15 @@ public class SignUp extends HttpServlet {
         String userName = req.getParameter("username");
         String password = req.getParameter("password");
         String emailId = req.getParameter("Email-Id");
-        if (!(new Login().isUserNameValid(new File(userName + "Data.txt"), userName))) {
-            new DataInFile().intoTextFile(userName, password, emailId);
+        if (!(new Login().isUserNameValid(new File("C:\\Users\\User.FULL479-WIN.003\\Downloads\\Database\\"+userName + "Data.txt"), userName))) {
+            new Data().intoTextFile(userName, password, emailId);
             HttpSession createSession = req.getSession();
             createSession.setAttribute("username", userName);
             resp.sendRedirect("DashBoard");
         }
-
+        else {
+            PrintWriter out = resp.getWriter();
+            out.print("UserName is Already Picked By Some One");
+        }
     }
 }

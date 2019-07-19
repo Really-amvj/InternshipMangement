@@ -14,14 +14,17 @@ public class Home extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession(false);
         //Handling Session
+        PrintWriter out = resp.getWriter();
         try {
-            if (session == null) {
-                PrintWriter out = resp.getWriter();
+            String sessionUser = session.getAttribute("username").toString();
+            if (session == null && sessionUser == null){
                 RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/JSP/Welcome.jsp");
                 rd.forward(req,resp);
-            } else
+            }
+            else {
                 resp.sendRedirect("DashBoard");
-        } catch (Exception e) {
+            }
+        } catch (NullPointerException error) {
             RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/JSP/Welcome.jsp");
             rd.forward(req,resp);
         }

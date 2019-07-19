@@ -4,20 +4,15 @@ body{
   font-family: sans-serif;
   background-image : url("http://blog.hostbaby.com/wp-content/uploads/2014/03/Trees_1920x1234.png");
 }
-a{
-  border:0;
-  background: none;
-  display: block;
-  margin: 20px auto;
-  text-align: center;
-  border: 2px solid #2ecc71;
-  padding: 14px 40px;
-  outline: none;
+.button {
+  background-color: #4CAF50;
+  border: none;
   color: white;
-  border-radius: 24px;
-  transition: 0.25s;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
   cursor: pointer;
-}
-a[type = "button"]:hover{
-  background: #2ecc71;
 }

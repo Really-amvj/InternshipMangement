@@ -14,14 +14,13 @@ public class DashBoard extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession(false);
         if(session!= null && session.getAttribute("username")!=null){
-            PrintWriter out= resp.getWriter();
-            out.println("Hi");
-            /*RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/JSP/DashBoard.jsp");
-            rd.forward(req,resp);*/
+            /*PrintWriter out= resp.getWriter();
+            out.println("Hi");*/
+            RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/JSP/DashBoard.jsp");
+            rd.forward(req,resp);
         }
         else {
-            PrintWriter out= resp.getWriter();
-            out.println("Else Block in DashBoard");
+            resp.sendRedirect("/");
         }
     }
 

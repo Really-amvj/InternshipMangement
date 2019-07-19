@@ -1,6 +1,7 @@
 package com.authentication;
 
 import com.serialization.UserData;
+import com.sun.corba.se.impl.interceptors.PINoOpHandlerImpl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,10 +17,17 @@ public class Login extends HttpServlet {
         String userName = req.getParameter("loginusername");
         String password = req.getParameter("loginpassword");
 
-        if(isUserNameValid(new File(userName+"Data.txt"),userName) && isPasswordValid(new File(userName+"Data.txt"),password)){
+        if(isUserNameValid(new File("C:\\Users\\User.FULL479-WIN.003\\Downloads\\Database\\"+userName + "Data.txt"),userName)
+                && isPasswordValid(new File("C:\\Users\\User.FULL479-WIN.003\\Downloads\\Database\\"+userName + "Data.txt"),password)){
             HttpSession createSession = req.getSession();
             createSession.setAttribute("username", userName);
             resp.sendRedirect("DashBoard");
+        }
+        else{
+            PrintWriter out = resp.getWriter();
+            out.print("<html>");
+            out.print("<strong> UserName or password is wrong </strong>");
+            out.print("</html>");
         }
     }
 
